@@ -1,6 +1,6 @@
 # Design
 
-A Claude Code-driven programming course: one maintainer, one shared git repo, one branch per learner. The `course` branch has the course without any learner progress; course changes are made there and merged into each learner branch.
+A Claude Code-driven programming course: one maintainer, one git repo per learner. The `course` branch of `job_enabler_666` has the course without any learner progress; course changes are made there and pulled into each learner's repo.
 
 ## Decisions
 

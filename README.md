@@ -9,16 +9,15 @@ A course that takes you from zero to junior Python backend developer. Each lesso
    Open Git Bash and run `python --version`. If the Microsoft Store opens instead, go to *Settings → Apps → Advanced app settings → App execution aliases* and turn off `python.exe` and `python3.exe`.
 3. **VS Code**: install it, then press `Ctrl+Shift+P`, choose *Terminal: Select Default Profile*, and pick **Git Bash**.
 4. **Claude Code**: install it with the official Windows instructions, then run `claude` once to log in.
-5. **Get the course** (the maintainer adds you to the GitHub repo first):
+5. **Get the course** (the maintainer adds you to your own GitHub repo first and sends you its link):
    ```bash
    git config --global user.name "Your Name"
    git config --global user.email "you@example.com"
-   git clone https://github.com/senyehor/job_enabler_666.git
-   cd job_enabler_666
-   git switch your-branch
+   git clone <your repo link>
+   cd <repo folder>
    claude
    ```
-   The maintainer tells you your branch name. Always work on your own branch. When Claude asks whether to trust the folder, say yes.
+   When Claude asks whether to trust the folder, say yes.
 
 ## Every lesson
 
@@ -36,8 +35,8 @@ To run your code: `python main.py` inside the lesson's `work/` folder. To run th
 
 ## For the maintainer
 
-- **Branches**: each learner has their own branch (`main`, `maks`). `course` holds the course with no learner progress. Make course changes on `course`, then merge it into each learner branch. Never merge one learner's branch into another.
-- **Add a learner**: `git switch -c <name> course && git push -u origin <name>`, then add them as a collaborator on GitHub.
+- **One repo per learner**: each learner gets their own repo and works on its `main`, so nobody can touch anyone else's progress. The `course` branch of `job_enabler_666` holds the course with no learner progress. Make course changes there, then in each learner's clone run `git pull course course && git push`.
+- **Add a learner**: create an empty private repo, then `git clone --branch course --single-branch <job_enabler_666 path> <folder>`, and in it `git branch -m course main`, `git remote rename origin course`, `git remote add origin <new repo>`, `git push -u origin main`. Add them as a collaborator on the new repo only.
 
 - **Plan a week**: `/plan-week`, optionally with notes like `/plan-week go slower on dicts`. It plans 15 lessons, builds and checks each one, then commits and pushes.
 - **Check progress**: `/status`, `python tools/learn.py status`, or `git log`. Every lesson step is its own commit.
